@@ -1,3 +1,48 @@
 1. System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(offerLocation.ToLower(CultureInfo.CurrentCulture)); //"ThIs iS mY TeXT" -> "This Is My Text"
 
    Why not just CultureInfo.CurrentCulture ?!?!
+
+2.
+const int STEP1 = 0;
+const int STEP2 = 1;
+const int STEP3 = 2;
+ 
+for (int i = 0; i < 3; i++) 
+{
+    if (i == STEP1) {...}
+    if (i == STEP2) {...}
+    if (i == STEP3) {...}
+}
+
+3.
+int a;
+public void Increment(ref a)
+{
+   a=a+1;
+}
+
+4.
+tryDelete:
+try
+{
+	System.IO.File.Delete(filePath);
+}
+catch
+{
+	System.Threading.Thread.Sleep(5000);
+	goto tryDelete;
+}
+
+5.
+System.GC.Collect();
+
+6.
+DateTime dt;
+string date = "1753/01/01";
+string[] parts = date.Split("/");
+int[] ps = new [] { int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]) };
+string year = ps[0].ToString();
+string month = ps[1] < 10 ? ("0" + ps[1]) : ("" + ps[1]);
+string day = ps[2] < 10 ? ("0" + ps[2]) : ("" + ps[2]);
+string dateString = year + "/" + month + "/" + day;
+dt = DateTime.Parse(dateString);
