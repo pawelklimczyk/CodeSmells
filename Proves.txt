@@ -46,3 +46,7 @@ string month = ps[1] < 10 ? ("0" + ps[1]) : ("" + ps[1]);
 string day = ps[2] < 10 ? ("0" + ps[2]) : ("" + ps[2]);
 string dateString = year + "/" + month + "/" + day;
 dt = DateTime.Parse(dateString);
+
+7.
+String.Concat(person.Firstname + " " + person.Lastname);
+
