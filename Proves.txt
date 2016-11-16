@@ -50,3 +50,9 @@ dt = DateTime.Parse(dateString);
 7.
 String.Concat(person.Firstname + " " + person.Lastname);
 
+8.
+protected void SendConfirmationEmailAsync(string receiver, string msg)
+{
+    var thread = new Thread(() => SendEmail(received, "Confirmed:" + msg));
+    thread.Start();
+}
