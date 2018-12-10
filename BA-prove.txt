@@ -1,0 +1,34 @@
+			Email = "";
+			Phone = "";
+			if (person.CommunicationMethods != null)
+			{
+				if (person.CommunicationMethods.Any(x => x.CommunicationMethodType == CommunicationMethodType.Email))
+				{
+					Email = person.CommunicationMethods.First(x => x.CommunicationMethodType == CommunicationMethodType.Email).Value;
+				}
+
+				if (person.CommunicationMethods.Any(x => x.CommunicationMethodType == CommunicationMethodType.Phone))
+				{
+					Phone = person.CommunicationMethods.First(x => x.CommunicationMethodType == CommunicationMethodType.Phone).Value;
+				}
+			}
+======================
+
+przchodzi w to =>
+
+
+
+        /// <summary>
+        /// Use CommunicationMethodType
+        /// </summary>
+        /// <param name="CommunicationMethodType"></param>
+        /// <returns></returns>
+        public string GetCommunicationMethodValueByKey(string key)
+        {
+            if (CommunicationMethods != null)
+            {
+                var emailMethod = CommunicationMethods.FirstOrDefault(cm => cm.CommunicationMethodType == key);
+
+                if (emailMethod != null && !String.IsNullOrWhiteSpace(emailMethod.Value))
+                    return emailMethod.Value;
+            }
